@@ -9,12 +9,12 @@ package vksiadi.telas;
  *
  * @author Kramer
  */
-public class Tela_Incluir_Membros extends javax.swing.JPanel {
+public class Tela_Dados_Membros extends javax.swing.JPanel {
 
     /**
      * Creates new form Tela_Incluir_Membros
      */
-    public Tela_Incluir_Membros() {
+    public Tela_Dados_Membros() {
         initComponents();
     }
 
