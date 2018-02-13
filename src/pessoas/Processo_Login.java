@@ -3,7 +3,6 @@ package pessoas;
 
 import db.DB_Usuario;
 import java.sql.SQLException;
-import pessoas.Usuario;
 
 
 public class Processo_Login extends Usuario{

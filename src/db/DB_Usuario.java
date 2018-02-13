@@ -17,10 +17,7 @@ import vksiadi.Literate;
  */
 public class DB_Usuario {
 
-    private final String tabela = "db_siadi.sia_usuario";
-
-       
-    
+      
     public void inserirUsuario() {
 
     }
@@ -50,7 +47,7 @@ public class DB_Usuario {
     }
 
     public void consultarUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
 }

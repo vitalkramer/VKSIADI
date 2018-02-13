@@ -2,7 +2,7 @@
 package pessoas;
 
 
-public class Membros {
+public class Membro {
     
     private String id_membro;
     private String mb_nome;

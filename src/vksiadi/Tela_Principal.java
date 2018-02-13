@@ -116,7 +116,7 @@ public class Tela_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_listarMembrosActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Tela_Dados_Membros telaDadosMembros = new Tela_Dados_Membros();
+        Tela_Dados_Membros telaDadosMembros = new Tela_Dados_Membros(1);
         this.painelCentral.setViewportView(telaDadosMembros);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
