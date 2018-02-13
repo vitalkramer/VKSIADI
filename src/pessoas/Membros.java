@@ -8,7 +8,7 @@ public class Membros {
     private String mb_nome;
     private String mb_cpf;
     private String mb_dtNascimento;
-    private String mb_sexo;
+    private int mb_sexo;
     private String mb_pai;
     private String mb_mae;
     private String mb_nacionalidade;
@@ -52,11 +52,11 @@ public class Membros {
         this.mb_dtNascimento = mb_dtNascimento;
     }
 
-    public String getMb_sexo() {
+    public int getMb_sexo() {
         return mb_sexo;
     }
 
-    public void setMb_sexo(String mb_sexo) {
+    public void setMb_sexo(int mb_sexo) {
         this.mb_sexo = mb_sexo;
     }
 
