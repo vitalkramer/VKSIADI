@@ -1,8 +1,11 @@
 
 package pessoas;
 
+import db.DB_Membro;
+import java.sql.SQLException;
 
-public class Membro {
+
+public class Membro extends DB_Membro{
     
     private String id_membro;
     private String mb_nome;
@@ -138,6 +141,10 @@ public class Membro {
 
     public void setSia_endereço_id_endereco(String sia_endereço_id_endereco) {
         this.sia_endereço_id_endereco = sia_endereço_id_endereco;
+    }
+    
+    public void inserirMembro() throws SQLException{
+        insertMembro(this);
     }
     
     

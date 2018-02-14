@@ -5,12 +5,12 @@
  */
 package vksiadi;
 
-import pessoas.Processo_Login;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import pessoas.Usuario;
 
 /**
  *
@@ -109,7 +109,7 @@ public class Tela_Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        Processo_Login login = new Processo_Login();
+        Usuario login = new Usuario();
         Funcoes md5 = new Funcoes();
         int valor = 0;
         

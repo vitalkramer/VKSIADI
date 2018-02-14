@@ -5,11 +5,14 @@
  */
 package pessoas;
 
+import db.DB_Usuario;
+import java.sql.SQLException;
+
 /**
  *
  * @author vk
  */
-public class Usuario {
+public class Usuario extends DB_Usuario{
         
     private String usu_usuario;
     private String usu_senha;
@@ -48,5 +51,14 @@ public class Usuario {
         this.sia_membros_id_membro = sia_membri_id_membro;
     }
     
-    
+    public int logar() throws SQLException{
+        
+        consultarUsuario(this.getUsu_usuario(), this.getUsu_senha());
+        
+        if(getUsu_usuario()== null && getUsu_senha()== null){
+            return 0;
+        }else{
+            return 1;
+        }
+    }
 }

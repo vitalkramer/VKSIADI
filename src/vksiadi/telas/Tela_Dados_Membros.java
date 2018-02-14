@@ -5,12 +5,14 @@
  */
 package vksiadi.telas;
 
+import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 import pessoas.Membro;
-import pessoas.Processo_Membros;
 
 /**
  *
@@ -511,21 +513,26 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
     }//GEN-LAST:event_campo_mbNaturalidadeKeyReleased
 
     private void salvarDadosPessoaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarDadosPessoaisActionPerformed
-        Processo_Membros incluirMembros = new Processo_Membros();
+        Membro incluirMembro = new Membro();
         
         if(!campo_mbNome.equals(" ") & !campo_mbDataNascimento.equals(" ") & !campo_mbNacionalidade.equals(" ") & !campo_mbNaturalidade.equals(" ") ){
-            incluirMembros.setMb_cpf(campo_mbCpf.getText());
-            incluirMembros.setMb_nome(campo_mbNome.getText());
-            incluirMembros.setMb_dtNascimento(campo_mbDataNascimento.getText());
-            incluirMembros.setMb_sexo(campo_mbSexo.getSelectedIndex());
-            incluirMembros.setMb_pai(campo_mbPai.getText());
-            incluirMembros.setMb_mae(campo_mbMae.getText());
-            incluirMembros.setMb_nacionalidade(campo_mbNacionalidade.getText());
-            incluirMembros.setMb_naturalidade(campo_mbNaturalidade.getText());
-            incluirMembros.setMb_rgNumero(campo_mbRgNumero.getText());
-            incluirMembros.setMb_rgOrgao(campo_mbRgOrgao.getText());
-            incluirMembros.setMb_rgData(campo_mbRgData.getText());
-            incluirMembros.setMb_email(campo_mbEmail.getText());
+            incluirMembro.setMb_cpf(campo_mbCpf.getText());
+            incluirMembro.setMb_nome(campo_mbNome.getText());
+            incluirMembro.setMb_dtNascimento(campo_mbDataNascimento.getText());
+            incluirMembro.setMb_sexo(campo_mbSexo.getSelectedIndex());
+            incluirMembro.setMb_pai(campo_mbPai.getText());
+            incluirMembro.setMb_mae(campo_mbMae.getText());
+            incluirMembro.setMb_nacionalidade(campo_mbNacionalidade.getText());
+            incluirMembro.setMb_naturalidade(campo_mbNaturalidade.getText());
+            incluirMembro.setMb_rgNumero(campo_mbRgNumero.getText());
+            incluirMembro.setMb_rgOrgao(campo_mbRgOrgao.getText());
+            incluirMembro.setMb_rgData(campo_mbRgData.getText());
+            incluirMembro.setMb_email(campo_mbEmail.getText());
+            try {
+                incluirMembro.inserirMembro();
+            } catch (SQLException ex) {
+                Logger.getLogger(Tela_Dados_Membros.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }else{
             JOptionPane.showMessageDialog(null, "Campos obrigatórios não preenchidos.");
         }
