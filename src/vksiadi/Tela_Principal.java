@@ -166,6 +166,6 @@ public class Tela_Principal extends javax.swing.JFrame {
     private javax.swing.JMenu mMembros;
     private javax.swing.JMenu mPatrimonio;
     private javax.swing.JLabel nomeUsuario;
-    private javax.swing.JScrollPane painelCentral;
+    public static javax.swing.JScrollPane painelCentral;
     // End of variables declaration//GEN-END:variables
 }

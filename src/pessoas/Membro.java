@@ -3,6 +3,9 @@ package pessoas;
 
 import db.DB_Membro;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 
 public class Membro extends DB_Membro{
@@ -23,6 +26,10 @@ public class Membro extends DB_Membro{
     private String mb_status;
     private String sia_endereço_id_endereco;
 
+    public Membro(){
+        
+    }
+    
     public String getId_membro() {
         return id_membro;
     }
@@ -145,6 +152,26 @@ public class Membro extends DB_Membro{
     
     public void inserirMembro() throws SQLException{
         insertMembro(this);
+    }
+    
+    public JTable listarMembros() throws SQLException{
+        ArrayList<Membro> listarMembros;
+        listarMembros = consultarMembroParteNome(getMb_nome());
+        JTable tabela = new JTable();
+        DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
+        
+        if(listarMembros.size() >0){
+            
+            for (int i = 0; i < listarMembros.size(); i++) {
+                System.out.println("Entrou no FOR");
+              //  System.out.println("Nome "+listarMembros.get(i).getMb_nome());
+              //  System.out.println("ID "+listarMembros.get(i).getId_membro()); 
+
+                modelo.addRow(new Object[]{listarMembros.get(i).getId_membro(),listarMembros.get(i).getMb_nome()});
+            }
+        }
+        
+        return tabela;
     }
     
     

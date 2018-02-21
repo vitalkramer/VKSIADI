@@ -162,9 +162,21 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
 
         jLabel11.setText("Emissor:");
 
+        campo_mbRgOrgao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                campo_mbRgOrgaoKeyReleased(evt);
+            }
+        });
+
         jLabel12.setText("Data:");
 
         jLabel13.setText("Email:");
+
+        campo_mbEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                campo_mbEmailKeyReleased(evt);
+            }
+        });
 
         salvarDadosPessoais.setText("Salvar");
         salvarDadosPessoais.addActionListener(new java.awt.event.ActionListener() {
@@ -180,69 +192,69 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
         painelDadosPessoaisLayout.setHorizontalGroup(
             painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(8, 8, 8)
-                        .addComponent(campo_mbDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campo_mbSexo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(campo_mbMae))
-                    .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
+                        .addGap(159, 159, 159)
+                        .addComponent(salvarDadosPessoais)
                         .addGap(18, 18, 18)
-                        .addComponent(campo_mbPai))
+                        .addComponent(editarDadosPessoais))
                     .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campo_mbNacionalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campo_mbNaturalidade))
-                    .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
-                        .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addContainerGap()
                         .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
-                                .addComponent(campoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(52, 52, 52)
-                                .addComponent(jLabel3)
+                                .addComponent(jLabel4)
+                                .addGap(8, 8, 8)
+                                .addComponent(campo_mbDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(campo_mbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
+                                .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
+                                        .addComponent(campoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(126, 126, 126)
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(campo_mbCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(campo_mbNome)))
+                            .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(18, 18, 18)
+                                .addComponent(campo_mbPai))
+                            .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
+                                .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(campo_mbCpf))
-                            .addComponent(campo_mbNome, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(2, 2, 2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelDadosPessoaisLayout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campo_mbRgNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campo_mbRgOrgao, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(campo_mbRgData, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campo_mbEmail)))
-                .addContainerGap(30, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelDadosPessoaisLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(salvarDadosPessoais)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(editarDadosPessoais)
-                .addGap(103, 103, 103))
+                                .addComponent(campo_mbMae))
+                            .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(campo_mbNacionalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(campo_mbNaturalidade))
+                            .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(campo_mbRgNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel11)
+                                .addGap(7, 7, 7)
+                                .addComponent(campo_mbRgOrgao, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(campo_mbRgData))
+                            .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(campo_mbEmail)))))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
         painelDadosPessoaisLayout.setVerticalGroup(
             painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,23 +291,25 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
                     .addComponent(campo_mbNacionalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
                     .addComponent(campo_mbNaturalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(campo_mbRgNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11)
-                    .addComponent(campo_mbRgOrgao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12)
-                    .addComponent(campo_mbRgData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(campo_mbRgNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10))
+                    .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(campo_mbRgData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel12)
+                        .addComponent(campo_mbRgOrgao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel11)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(campo_mbEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(10, 10, 10)
                 .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(salvarDadosPessoais)
                     .addComponent(editarDadosPessoais))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         menu.addTab("Dados Pessoais", painelDadosPessoais);
@@ -390,7 +404,7 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
                         .addGap(21, 21, 21)
                         .addComponent(editarEndereco)
                         .addGap(78, 78, 78)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
         painelEnderecoLayout.setVerticalGroup(
             painelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -420,7 +434,7 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
                 .addGroup(painelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(salvarEndereco)
                     .addComponent(editarEndereco))
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
         menu.addTab("Endereço", painelEndereco);
@@ -456,7 +470,7 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
                 .addGroup(painelTelefoneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(campo_TelNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(editarTelefone))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
         painelTelefoneLayout.setVerticalGroup(
             painelTelefoneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -471,7 +485,7 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
                 .addGroup(painelTelefoneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(salvarTelefone)
                     .addComponent(editarTelefone))
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addContainerGap(210, Short.MAX_VALUE))
         );
 
         menu.addTab("Telefone", painelTelefone);
@@ -480,7 +494,7 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menu)
+            .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -515,7 +529,7 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
     private void salvarDadosPessoaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarDadosPessoaisActionPerformed
         Membro incluirMembro = new Membro();
         
-        if(!campo_mbNome.equals(" ") & !campo_mbDataNascimento.equals(" ") & !campo_mbNacionalidade.equals(" ") & !campo_mbNaturalidade.equals(" ") ){
+        if(!campo_mbNome.equals("") & !campo_mbDataNascimento.equals("") & !campo_mbNacionalidade.equals("") & !campo_mbNaturalidade.equals("") ){
             incluirMembro.setMb_cpf(campo_mbCpf.getText());
             incluirMembro.setMb_nome(campo_mbNome.getText());
             incluirMembro.setMb_dtNascimento(campo_mbDataNascimento.getText());
@@ -536,6 +550,10 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
         }else{
             JOptionPane.showMessageDialog(null, "Campos obrigatórios não preenchidos.");
         }
+        
+        salvarDadosPessoais.setVisible(false);
+        editarDadosPessoais.setVisible(true);
+        menu.setEnabledAt(1, true);
            
     }//GEN-LAST:event_salvarDadosPessoaisActionPerformed
 
@@ -562,6 +580,14 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
     private void editarTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarTelefoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editarTelefoneActionPerformed
+
+    private void campo_mbRgOrgaoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_mbRgOrgaoKeyReleased
+        campo_mbRgOrgao.setText(campo_mbRgOrgao.getText().toUpperCase());
+    }//GEN-LAST:event_campo_mbRgOrgaoKeyReleased
+
+    private void campo_mbEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_mbEmailKeyReleased
+       campo_mbEmail.setText(campo_mbEmail.getText().toLowerCase());
+    }//GEN-LAST:event_campo_mbEmailKeyReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel campoCodigo;
@@ -638,11 +664,13 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
     }
     
     private void initIncluir(){
-        editarDadosPessoais.setEnabled(false);
-        salvarEndereco.setEnabled(false);
-        salvarTelefone.setEnabled(false);
-        painelEndereco.setEnabled(false);
-        painelTelefone.setEnabled(false);
+        editarDadosPessoais.setVisible(false);
+        editarEndereco.setVisible(false);
+        editarTelefone.setVisible(false);
+        
+        
+        menu.setEnabledAt(1, false);
+        menu.setEnabledAt(2, false);
         
     }
     
