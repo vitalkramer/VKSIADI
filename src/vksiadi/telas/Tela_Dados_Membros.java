@@ -568,7 +568,7 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
     private void salvarDadosPessoaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarDadosPessoaisActionPerformed
         Membro incluirMembro = new Membro();
         
-        if(!campo_mbNome.equals("") & !campo_mbDataNascimento.equals("") & !campo_mbNacionalidade.equals("") & !campo_mbNaturalidade.equals("") ){
+        if(!campo_mbNome.getText().equals("") && !campo_mbDataNascimento.getText().equals("") && !campo_mbNacionalidade.getText().equals("") && !campo_mbNaturalidade.getText().equals("") ){
             incluirMembro.setMb_cpf(campo_mbCpf.getText());
             incluirMembro.setMb_nome(campo_mbNome.getText());
             incluirMembro.setMb_dtNascimento(campo_mbDataNascimento.getText());
@@ -753,4 +753,9 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
     private void initCosulta(){
         
     }
+    
+    private void camposDadosDisponibilidade(boolean opcao){
+        campo_mbCpf.enable(opcao);
+    }
 }
+
