@@ -6,8 +6,11 @@
 package vksiadi.telas;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import pessoas.Membro;
 import vksiadi.Tela_Principal;
 
@@ -19,7 +22,8 @@ public class Tela_Lista_Membros extends javax.swing.JPanel {
 
    
     public Tela_Lista_Membros() {
-        initComponents();  
+        initComponents(); 
+        
     }
 
     /**
@@ -51,9 +55,14 @@ public class Tela_Lista_Membros extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Nome"
+
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("Incluir");
@@ -101,8 +110,33 @@ public class Tela_Lista_Membros extends javax.swing.JPanel {
         campoConsulta.setText(campoConsulta.getText().toUpperCase());
         Membro membroConsulta = new Membro();
         membroConsulta.setMb_nome(campoConsulta.getText());
+        ArrayList<Membro> listarMembros = new ArrayList();
+        String colunas[] = {"ID", "NOME"};
+                
         try {
-            jTable1 = membroConsulta.listarMembros();
+            listarMembros = membroConsulta.listarMembros();
+            
+            if(listarMembros.size()>0){
+                //cria uma tabela não editavel
+                DefaultTableModel modelo = new DefaultTableModel(colunas, 0){
+                    @Override
+                    public boolean isCellEditable(int row, int col){
+                        return false;
+                    }
+                };
+        
+                for (int i = 0; i < listarMembros.size(); i++) {
+                   modelo.addRow( new String[]{listarMembros.get(i).getId_membro(),listarMembros.get(i).getMb_nome()});     
+                }
+                
+                jTable1.setModel(modelo);
+                
+            }else{
+                DefaultTableModel modelo = new DefaultTableModel(colunas, 0);
+                jTable1.setModel(modelo);
+            }
+            jTable1.repaint();
+            
         } catch (SQLException ex) {
             Logger.getLogger(Tela_Lista_Membros.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -112,6 +146,12 @@ public class Tela_Lista_Membros extends javax.swing.JPanel {
         Tela_Dados_Membros telaDadosMembros = new Tela_Dados_Membros(1);
         Tela_Principal.painelCentral.setViewportView(telaDadosMembros);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        Membro membroConsulta = new Membro();
+        String id = (String) jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0);
+        membroConsulta.exibirDados(id);
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
