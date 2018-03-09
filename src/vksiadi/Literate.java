@@ -5,8 +5,8 @@ package vksiadi;
 public class Literate {
     
     private static String LOGO;
-    private static String ID_MEMBRO;
-    private static String MB_NOME;
+    private static String ID_USUARIO_LOGADO;
+    private static String NOME_USUARIO_LOGADO;
     
     public static String getLOGO() {
         return LOGO;
@@ -17,19 +17,19 @@ public class Literate {
     }
 
     public static String getID_MEMBRO() {
-        return ID_MEMBRO;
+        return ID_USUARIO_LOGADO;
     }
 
     public static void setID_MEMBRO(String ID_MEMBRO) {
-        Literate.ID_MEMBRO = ID_MEMBRO;
+        Literate.ID_USUARIO_LOGADO = ID_MEMBRO;
     }
 
     public static String getMB_NOME() {
-        return MB_NOME;
+        return NOME_USUARIO_LOGADO;
     }
 
     public static void setMB_NOME(String MB_NOME) {
-        Literate.MB_NOME = MB_NOME;
+        Literate.NOME_USUARIO_LOGADO = MB_NOME;
     }
     
 }
