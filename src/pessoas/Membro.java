@@ -149,11 +149,11 @@ public class Membro extends DB_Membro{
     }
     
     public void inserirMembro() throws SQLException{
-        insertMembro(this);
+       this.setId_membro(insertMembro(this));
     }
     
     public void atualizaMembro() throws SQLException{
-        updateMembro();
+        updateMembro(this);
     }
     
     public ArrayList<Membro> listarMembros() throws SQLException{
