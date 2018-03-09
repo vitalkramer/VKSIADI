@@ -55,6 +55,9 @@ public class Usuario extends DB_Usuario{
         
         Usuario resultDbUsuario = new Usuario();
         resultDbUsuario = consultarUsuario(this.getUsu_usuario(), this.getUsu_senha());
+        
+        System.out.println("Usuario: "+getUsu_usuario()+"  Senha: "+getUsu_senha());
+        System.out.println("Usuario: "+resultDbUsuario.getUsu_usuario()+"  Senha: "+resultDbUsuario.getUsu_senha());
        
         if(getUsu_usuario().equals(resultDbUsuario.getUsu_usuario()) && getUsu_senha().equals(resultDbUsuario.getUsu_senha())){
             return 1;

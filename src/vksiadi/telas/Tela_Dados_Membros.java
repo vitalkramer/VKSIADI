@@ -79,6 +79,7 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
         editarDadosPessoais = new javax.swing.JButton();
         campo_mbDataNascimento = new javax.swing.JFormattedTextField();
         campo_mbRgData = new javax.swing.JFormattedTextField();
+        updateDadosPessoais = new javax.swing.JButton();
         painelEndereco = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         campo_EndCep = new javax.swing.JFormattedTextField();
@@ -195,6 +196,11 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
         });
 
         editarDadosPessoais.setText("Editar");
+        editarDadosPessoais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarDadosPessoaisActionPerformed(evt);
+            }
+        });
 
         campo_mbDataNascimento.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -208,6 +214,8 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
             }
         });
 
+        updateDadosPessoais.setText("Salvar");
+
         javax.swing.GroupLayout painelDadosPessoaisLayout = new javax.swing.GroupLayout(painelDadosPessoais);
         painelDadosPessoais.setLayout(painelDadosPessoaisLayout);
         painelDadosPessoaisLayout.setHorizontalGroup(
@@ -217,8 +225,10 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
                     .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
                         .addGap(159, 159, 159)
                         .addComponent(salvarDadosPessoais)
-                        .addGap(18, 18, 18)
-                        .addComponent(editarDadosPessoais))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(editarDadosPessoais)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(updateDadosPessoais))
                     .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -275,7 +285,7 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(campo_mbRgData)))))
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         painelDadosPessoaisLayout.setVerticalGroup(
             painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,8 +339,9 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
                 .addGap(10, 10, 10)
                 .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(salvarDadosPessoais)
-                    .addComponent(editarDadosPessoais))
-                .addContainerGap(27, Short.MAX_VALUE))
+                    .addComponent(editarDadosPessoais)
+                    .addComponent(updateDadosPessoais))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         menu.addTab("Dados Pessoais", painelDadosPessoais);
@@ -583,17 +594,19 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
             incluirMembro.setMb_email(campo_mbEmail.getText());
             try {
                 incluirMembro.inserirMembro();
+                camposDadosDisponibilidade(false);
+                
+                salvarDadosPessoais.setVisible(false);
+                editarDadosPessoais.setVisible(true);
+                menu.setEnabledAt(1, true);
+                menu.setEnabledAt(2, true);
+                
             } catch (SQLException ex) {
                 Logger.getLogger(Tela_Dados_Membros.class.getName()).log(Level.SEVERE, null, ex);
             }
         }else{
             JOptionPane.showMessageDialog(null, "Campos obrigatórios não preenchidos.");
-        }
-        
-        salvarDadosPessoais.setVisible(false);
-        editarDadosPessoais.setVisible(true);
-        menu.setEnabledAt(1, true);
-           
+        }  
     }//GEN-LAST:event_salvarDadosPessoaisActionPerformed
 
     private void editarEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarEnderecoActionPerformed
@@ -682,6 +695,12 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_campo_TelNumeroFocusGained
 
+    private void editarDadosPessoaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarDadosPessoaisActionPerformed
+        camposDadosDisponibilidade(true);
+        editarDadosPessoais.setVisible(false);
+        updateDadosPessoais.setVisible(true);
+    }//GEN-LAST:event_editarDadosPessoaisActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel campoCodigo;
     private javax.swing.JTextField campo_EndBairro;
@@ -736,11 +755,13 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
     private javax.swing.JButton salvarDadosPessoais;
     private javax.swing.JButton salvarEndereco;
     private javax.swing.JButton salvarTelefone;
+    private javax.swing.JButton updateDadosPessoais;
     // End of variables declaration//GEN-END:variables
 
         
     private void initIncluir(){
         editarDadosPessoais.setVisible(false);
+        updateDadosPessoais.setVisible(false);
         editarEndereco.setVisible(false);
         editarTelefone.setVisible(false);
         
@@ -755,7 +776,18 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
     }
     
     private void camposDadosDisponibilidade(boolean opcao){
-        campo_mbCpf.enable(opcao);
+        campo_mbCpf.setEditable(opcao);
+        campo_mbNome.setEditable(opcao);
+        campo_mbMae.setEditable(opcao);
+        campo_mbPai.setEditable(opcao);
+        campo_mbDataNascimento.setEditable(opcao);
+        campo_mbNacionalidade.setEditable(opcao);
+        campo_mbNaturalidade.setEditable(opcao);
+        campo_mbSexo.setEditable(opcao);
+        campo_mbRgNumero.setEditable(opcao);
+        campo_mbRgOrgao.setEditable(opcao);
+        campo_mbRgData.setEditable(opcao);
+        campo_mbEmail.setEditable(opcao);
     }
 }
 

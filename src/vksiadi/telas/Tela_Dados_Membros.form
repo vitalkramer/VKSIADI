@@ -47,8 +47,10 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
                               <Component id="salvarDadosPessoais" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="editarDadosPessoais" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="updateDadosPessoais" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
@@ -119,7 +121,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="125" max="32767" attributes="0"/>
+                      <EmptySpace pref="143" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -188,8 +190,9 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="salvarDadosPessoais" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="editarDadosPessoais" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="updateDadosPessoais" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="27" max="32767" attributes="0"/>
+                      <EmptySpace pref="54" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -331,6 +334,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Editar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editarDadosPessoaisActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="campo_mbDataNascimento">
               <Events>
@@ -341,6 +347,11 @@
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="campo_mbRgDataFocusGained"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="updateDadosPessoais">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Salvar"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

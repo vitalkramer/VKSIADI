@@ -18,6 +18,7 @@ public class DB_Membro {
         conexao.conecta();
         Statement st = conexao.getConexao().createStatement();
 //        st.execute(sql);
+System.out.println("incluido");
         
     }
  
