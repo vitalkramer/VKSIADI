@@ -53,12 +53,13 @@ public class Usuario extends DB_Usuario{
     
     public int logar() throws SQLException{
         
-        consultarUsuario(this.getUsu_usuario(), this.getUsu_senha());
-        
-        if(getUsu_usuario()== null && getUsu_senha()== null){
-            return 0;
-        }else{
+        Usuario resultDbUsuario = new Usuario();
+        resultDbUsuario = consultarUsuario(this.getUsu_usuario(), this.getUsu_senha());
+       
+        if(getUsu_usuario().equals(resultDbUsuario.getUsu_usuario()) && getUsu_senha().equals(resultDbUsuario.getUsu_senha())){
             return 1;
+        }else{
+            return 0;
         }
     }
 }

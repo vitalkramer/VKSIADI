@@ -24,13 +24,11 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
      * Creates new form Tela_Incluir_Membros
      */
     public Tela_Dados_Membros() {
-        initComponents();
-        setMascaras(); 
+        initComponents(); 
     }
     
     public Tela_Dados_Membros (int opcao){
         initComponents();
-        setMascaras();
         
         switch(opcao){
             case 1:
@@ -60,7 +58,6 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         campo_mbCpf = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
-        campo_mbDataNascimento = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         campo_mbSexo = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
@@ -76,11 +73,12 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         campo_mbRgOrgao = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        campo_mbRgData = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         campo_mbEmail = new javax.swing.JTextField();
         salvarDadosPessoais = new javax.swing.JButton();
         editarDadosPessoais = new javax.swing.JButton();
+        campo_mbDataNascimento = new javax.swing.JFormattedTextField();
+        campo_mbRgData = new javax.swing.JFormattedTextField();
         painelEndereco = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         campo_EndCep = new javax.swing.JFormattedTextField();
@@ -99,11 +97,11 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
         editarEndereco = new javax.swing.JButton();
         painelTelefone = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
-        campo_telDDD = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        campo_TelNumero = new javax.swing.JTextField();
         salvarTelefone = new javax.swing.JButton();
         editarTelefone = new javax.swing.JButton();
+        campo_telDDD = new javax.swing.JFormattedTextField();
+        campo_TelNumero = new javax.swing.JFormattedTextField();
 
         jLabel1.setText("Codigo:");
 
@@ -116,6 +114,17 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
         });
 
         jLabel3.setText("CPF:");
+
+        campo_mbCpf.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_mbCpfFocusGained(evt);
+            }
+        });
+        campo_mbCpf.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                campo_mbCpfMouseClicked(evt);
+            }
+        });
 
         jLabel4.setText("*Data de Nascimento:");
 
@@ -187,6 +196,18 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
 
         editarDadosPessoais.setText("Editar");
 
+        campo_mbDataNascimento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_mbDataNascimentoFocusGained(evt);
+            }
+        });
+
+        campo_mbRgData.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_mbRgDataFocusGained(evt);
+            }
+        });
+
         javax.swing.GroupLayout painelDadosPessoaisLayout = new javax.swing.GroupLayout(painelDadosPessoais);
         painelDadosPessoais.setLayout(painelDadosPessoaisLayout);
         painelDadosPessoaisLayout.setHorizontalGroup(
@@ -203,9 +224,9 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
                         .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addGap(8, 8, 8)
-                                .addComponent(campo_mbDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(campo_mbDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel5)
                                 .addGap(18, 18, 18)
                                 .addComponent(campo_mbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -239,6 +260,10 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(campo_mbNaturalidade))
                             .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(campo_mbEmail))
+                            .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(campo_mbRgNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,11 +274,7 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(campo_mbRgData))
-                            .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(campo_mbEmail)))))
+                                .addComponent(campo_mbRgData)))))
                 .addContainerGap(125, Short.MAX_VALUE))
         );
         painelDadosPessoaisLayout.setVerticalGroup(
@@ -274,9 +295,9 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(campo_mbDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(campo_mbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campo_mbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campo_mbDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campo_mbPai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -297,10 +318,10 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
                         .addComponent(campo_mbRgNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel10))
                     .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(campo_mbRgData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel12)
                         .addComponent(campo_mbRgOrgao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel11)))
+                        .addComponent(jLabel11)
+                        .addComponent(campo_mbRgData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
@@ -315,6 +336,12 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
         menu.addTab("Dados Pessoais", painelDadosPessoais);
 
         jLabel14.setText("*CEP:");
+
+        campo_EndCep.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_EndCepFocusGained(evt);
+            }
+        });
 
         jLabel15.setText("*Logradouro:");
 
@@ -452,6 +479,18 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
             }
         });
 
+        campo_telDDD.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_telDDDFocusGained(evt);
+            }
+        });
+
+        campo_TelNumero.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_TelNumeroFocusGained(evt);
+            }
+        });
+
         javax.swing.GroupLayout painelTelefoneLayout = new javax.swing.GroupLayout(painelTelefone);
         painelTelefone.setLayout(painelTelefoneLayout);
         painelTelefoneLayout.setHorizontalGroup(
@@ -462,15 +501,15 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
                     .addComponent(salvarTelefone)
                     .addGroup(painelTelefoneLayout.createSequentialGroup()
                         .addComponent(jLabel20)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(campo_telDDD, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(campo_telDDD, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel21)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(painelTelefoneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(campo_TelNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editarTelefone))
-                .addContainerGap(258, Short.MAX_VALUE))
+                    .addComponent(editarTelefone)
+                    .addComponent(campo_TelNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(289, Short.MAX_VALUE))
         );
         painelTelefoneLayout.setVerticalGroup(
             painelTelefoneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -478,8 +517,8 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
                 .addGap(30, 30, 30)
                 .addGroup(painelTelefoneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(campo_telDDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21)
+                    .addComponent(campo_telDDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(campo_TelNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(57, 57, 57)
                 .addGroup(painelTelefoneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -589,6 +628,60 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
        campo_mbEmail.setText(campo_mbEmail.getText().toLowerCase());
     }//GEN-LAST:event_campo_mbEmailKeyReleased
 
+    private void campo_mbCpfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campo_mbCpfMouseClicked
+               
+    }//GEN-LAST:event_campo_mbCpfMouseClicked
+
+    private void campo_mbCpfFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_mbCpfFocusGained
+        try {
+            MaskFormatter cpf = new MaskFormatter("###.###.###-##");
+            cpf.install( campo_mbCpf);
+        } catch (ParseException ex) {
+            Logger.getLogger(Tela_Dados_Membros.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_campo_mbCpfFocusGained
+
+    private void campo_mbDataNascimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_mbDataNascimentoFocusGained
+        try {
+            MaskFormatter dataNasc = new MaskFormatter("##/##/####");
+            dataNasc.install(campo_mbDataNascimento);
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_campo_mbDataNascimentoFocusGained
+
+    private void campo_mbRgDataFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_mbRgDataFocusGained
+        try {
+            MaskFormatter dataRg = new MaskFormatter("##/##/####");
+            dataRg.install(campo_mbRgData);
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_campo_mbRgDataFocusGained
+
+    private void campo_EndCepFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_EndCepFocusGained
+        try {
+            MaskFormatter cep = new MaskFormatter("##.###-###");
+            cep.install(campo_EndCep);
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_campo_EndCepFocusGained
+
+    private void campo_telDDDFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_telDDDFocusGained
+        try {
+            MaskFormatter ddd = new MaskFormatter("(##)");
+            ddd.install(campo_telDDD);
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_campo_telDDDFocusGained
+
+    private void campo_TelNumeroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_TelNumeroFocusGained
+       try {
+            MaskFormatter telefone = new MaskFormatter("#####-####");
+            telefone.install(campo_TelNumero);
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_campo_TelNumeroFocusGained
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel campoCodigo;
     private javax.swing.JTextField campo_EndBairro;
@@ -598,20 +691,20 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
     private javax.swing.JTextField campo_EndLogradouro;
     private javax.swing.JTextField campo_EndNumero;
     private javax.swing.JComboBox<String> campo_Endestado;
-    private javax.swing.JTextField campo_TelNumero;
+    private javax.swing.JFormattedTextField campo_TelNumero;
     private javax.swing.JFormattedTextField campo_mbCpf;
-    private javax.swing.JTextField campo_mbDataNascimento;
+    private javax.swing.JFormattedTextField campo_mbDataNascimento;
     private javax.swing.JTextField campo_mbEmail;
     private javax.swing.JTextField campo_mbMae;
     private javax.swing.JTextField campo_mbNacionalidade;
     private javax.swing.JTextField campo_mbNaturalidade;
     private javax.swing.JTextField campo_mbNome;
     private javax.swing.JTextField campo_mbPai;
-    private javax.swing.JTextField campo_mbRgData;
+    private javax.swing.JFormattedTextField campo_mbRgData;
     private javax.swing.JTextField campo_mbRgNumero;
     private javax.swing.JTextField campo_mbRgOrgao;
     private javax.swing.JComboBox<String> campo_mbSexo;
-    private javax.swing.JTextField campo_telDDD;
+    private javax.swing.JFormattedTextField campo_telDDD;
     private javax.swing.JButton editarDadosPessoais;
     private javax.swing.JButton editarEndereco;
     private javax.swing.JButton editarTelefone;
@@ -645,24 +738,7 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
     private javax.swing.JButton salvarTelefone;
     // End of variables declaration//GEN-END:variables
 
-    private void setMascaras(){
-        try{
-            MaskFormatter cpf= new MaskFormatter("###.###.###-##");
-            campo_mbCpf = new JFormattedTextField(cpf);
-            
-            MaskFormatter dataNasc = new MaskFormatter("##/##/####");
-            campo_mbDataNascimento = new JFormattedTextField(dataNasc);
-            
-            MaskFormatter dataRg = new MaskFormatter("##/##/####");
-            campo_mbRgData = new JFormattedTextField(dataRg);
-            
-            MaskFormatter cep = new MaskFormatter("##.###-###");
-            campo_EndCep = new JFormattedTextField(cep);
-        }
-        catch (ParseException e){
-        }
-    }
-    
+        
     private void initIncluir(){
         editarDadosPessoais.setVisible(false);
         editarEndereco.setVisible(false);
