@@ -215,6 +215,11 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
         });
 
         updateDadosPessoais.setText("Salvar");
+        updateDadosPessoais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateDadosPessoaisActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout painelDadosPessoaisLayout = new javax.swing.GroupLayout(painelDadosPessoais);
         painelDadosPessoais.setLayout(painelDadosPessoaisLayout);
@@ -700,6 +705,37 @@ public class Tela_Dados_Membros extends javax.swing.JPanel {
         editarDadosPessoais.setVisible(false);
         updateDadosPessoais.setVisible(true);
     }//GEN-LAST:event_editarDadosPessoaisActionPerformed
+
+    private void updateDadosPessoaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateDadosPessoaisActionPerformed
+        Membro novoMembro = new Membro();
+        
+        if(!campo_mbNome.getText().equals("") && !campo_mbDataNascimento.getText().equals("") && !campo_mbNacionalidade.getText().equals("") && !campo_mbNaturalidade.getText().equals("") ){
+            novoMembro.setMb_cpf(campo_mbCpf.getText());
+            novoMembro.setMb_nome(campo_mbNome.getText());
+            novoMembro.setMb_dtNascimento(campo_mbDataNascimento.getText());
+            novoMembro.setMb_sexo(campo_mbSexo.getSelectedIndex());
+            novoMembro.setMb_pai(campo_mbPai.getText());
+            novoMembro.setMb_mae(campo_mbMae.getText());
+            novoMembro.setMb_nacionalidade(campo_mbNacionalidade.getText());
+            novoMembro.setMb_naturalidade(campo_mbNaturalidade.getText());
+            novoMembro.setMb_rgNumero(campo_mbRgNumero.getText());
+            novoMembro.setMb_rgOrgao(campo_mbRgOrgao.getText());
+            novoMembro.setMb_rgData(campo_mbRgData.getText());
+            novoMembro.setMb_email(campo_mbEmail.getText());
+            try {
+                novoMembro.atualizaMembro();
+                
+                camposDadosDisponibilidade(false);
+                updateDadosPessoais.setVisible(false);
+                editarDadosPessoais.setVisible(true);
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Tela_Dados_Membros.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Campos obrigatórios não preenchidos.");
+        }
+    }//GEN-LAST:event_updateDadosPessoaisActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel campoCodigo;

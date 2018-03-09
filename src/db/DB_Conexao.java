@@ -69,7 +69,7 @@ public class DB_Conexao {
         }
     }
     
-    public void encerrarConexao() throws SQLException{
+    public void desconecta() throws SQLException{
         this.conexao.close();
     }
       

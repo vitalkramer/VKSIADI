@@ -18,7 +18,20 @@ public class DB_Membro {
         conexao.conecta();
         Statement st = conexao.getConexao().createStatement();
 //        st.execute(sql);
-System.out.println("incluido");
+        conexao.desconecta();
+        System.out.println("incluido");
+        
+    }
+    
+    public void updateMembro() throws SQLException{
+        String sql = "";
+                
+        DB_Conexao conexao = new DB_Conexao();
+        conexao.conecta();
+        Statement st = conexao.getConexao().createStatement();
+        //st.execute(sql);
+        conexao.desconecta();
+        System.out.println("Atualizado");
         
     }
  
@@ -40,7 +53,7 @@ System.out.println("incluido");
            consulta.add(listarMembro);
             
         }
-        conexao.encerrarConexao();
+        conexao.desconecta();
         return consulta;
         
     }

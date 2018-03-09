@@ -40,7 +40,7 @@ public class DB_Usuario {
             Literate.setID_MEMBRO(resultadoConsultaDB.getString("sia_membros_id_membros"));            
             Literate.setMB_NOME(resultadoConsultaDB.getString("mb_nome"));
         }
-        conexao.encerrarConexao();
+        conexao.desconecta();
         return novoUsuario;
                 
     }

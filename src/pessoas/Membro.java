@@ -152,6 +152,10 @@ public class Membro extends DB_Membro{
         insertMembro(this);
     }
     
+    public void atualizaMembro() throws SQLException{
+        updateMembro();
+    }
+    
     public ArrayList<Membro> listarMembros() throws SQLException{
         ArrayList<Membro> listarMembros;
         listarMembros = consultarMembroParteNome(getMb_nome());
